@@ -24,7 +24,21 @@ const router = new Router({
     {
       path: "/detail/:uid",
       name: "Detail",
-      component: () => import("./views/detail.vue")
+      component: () => import("./views/detail.vue"),
+      children: [
+        {
+          path: "/detail/:uid/activities",
+          component: () => import("./components/activities.vue")
+        },
+        {
+          path: "/detail/:uid/",
+          redirect: "/activities"
+        },
+        {
+          path: "/detail/:uid/comment",
+          component: () => import("./components/comment.vue")
+        }
+      ]
     }
   ]
 });

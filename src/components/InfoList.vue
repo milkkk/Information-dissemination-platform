@@ -1,15 +1,15 @@
 <template>
   <div class="list">
     <div class="item" v-for="(item,index) in list" :key="index">
-      <router-link :to="'/detail/'+index">
+      <router-link :to="'/detail/'+index+'/activities'">
         <div class="item-img">
           <img :src="item.img" />
         </div>
         <div class="item-right">
-          <h3>{{item.title}}</h3>
-          <p>{{item.customer}}</p>
-          <p>{{item.address}}</p>
-          <p>{{item.date}}</p>
+          <h3 class="title">{{item.title}}</h3>
+          <p class="info">{{item.customer}}</p>
+          <p class="info">{{item.address}}</p>
+          <p class="info">{{item.date}}</p>
         </div>
       </router-link>
     </div>
@@ -46,6 +46,7 @@ export default {
   width: 100%;
   height: 100%;
   color: #666;
+  text-decoration: none;
 }
 .item a .item-img {
   width: 100px;
@@ -60,14 +61,18 @@ export default {
   overflow: hidden;
   padding-left: 5px;
 }
-.item a .item-right h3 {
+.title {
   font-size: 14px;
   height: 40px;
   line-height: 40px;
+  margin: 0;
+  padding: 0;
 }
-.item a .item-right p {
+.info {
   height: 20px;
   line-height: 20px;
+  margin: 0;
+  padding: 0;
   font-size: 14px;
 }
 </style>
